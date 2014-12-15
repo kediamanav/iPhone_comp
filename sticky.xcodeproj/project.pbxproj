@@ -21,6 +21,8 @@
 		500613DB1A3F3EA50015E319 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 500613D01A3F3EA50015E319 /* AFURLRequestSerialization.m */; };
 		500613DC1A3F3EA50015E319 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 500613D21A3F3EA50015E319 /* AFURLResponseSerialization.m */; };
 		500613DD1A3F3EA50015E319 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 500613D41A3F3EA50015E319 /* AFURLSessionManager.m */; };
+		500613E41A3F635B0015E319 /* PendingUploads.m in Sources */ = {isa = PBXBuildFile; fileRef = 500613E31A3F635B0015E319 /* PendingUploads.m */; };
+		500613E71A3F636D0015E319 /* ItemUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 500613E61A3F636D0015E319 /* ItemUploader.m */; };
 		500A387A1A39D9750041B7A9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 500A38781A39D9750041B7A9 /* Model.xcdatamodeld */; };
 		500B5AB419E8217400FA7F9A /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5A9C19E8217400FA7F9A /* NSObject+SBJson.m */; };
 		500B5AB519E8217400FA7F9A /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5A9F19E8217400FA7F9A /* SBJsonParser.m */; };
@@ -93,6 +95,10 @@
 		500613D21A3F3EA50015E319 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		500613D31A3F3EA50015E319 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		500613D41A3F3EA50015E319 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		500613E21A3F635B0015E319 /* PendingUploads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingUploads.h; sourceTree = "<group>"; };
+		500613E31A3F635B0015E319 /* PendingUploads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingUploads.m; sourceTree = "<group>"; };
+		500613E51A3F636D0015E319 /* ItemUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemUploader.h; sourceTree = "<group>"; };
+		500613E61A3F636D0015E319 /* ItemUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemUploader.m; sourceTree = "<group>"; };
 		500A38791A39D9750041B7A9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		500B5A9B19E8217400FA7F9A /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		500B5A9C19E8217400FA7F9A /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
@@ -211,6 +217,10 @@
 		500613DE1A3F55890015E319 /* Upload Items */ = {
 			isa = PBXGroup;
 			children = (
+				500613E21A3F635B0015E319 /* PendingUploads.h */,
+				500613E31A3F635B0015E319 /* PendingUploads.m */,
+				500613E51A3F636D0015E319 /* ItemUploader.h */,
+				500613E61A3F636D0015E319 /* ItemUploader.m */,
 			);
 			name = "Upload Items";
 			sourceTree = "<group>";
@@ -461,9 +471,11 @@
 				503AAB3D19E75622006F9573 /* SignUpViewController.m in Sources */,
 				500613D71A3F3EA50015E319 /* AFHTTPSessionManager.m in Sources */,
 				500613DC1A3F3EA50015E319 /* AFURLResponseSerialization.m in Sources */,
+				500613E71A3F636D0015E319 /* ItemUploader.m in Sources */,
 				500613D51A3F3EA50015E319 /* AFHTTPRequestOperation.m in Sources */,
 				502C72FD19E48B0D00874E98 /* beaconClass.m in Sources */,
 				500613DB1A3F3EA50015E319 /* AFURLRequestSerialization.m in Sources */,
+				500613E41A3F635B0015E319 /* PendingUploads.m in Sources */,
 				503AAB4019E75645006F9573 /* LoginViewController.m in Sources */,
 				5004BB7D19EE9CD500462F7A /* BeaconTableViewCell.m in Sources */,
 				500612BF1A3F1ED20015E319 /* PhotoRecord.m in Sources */,

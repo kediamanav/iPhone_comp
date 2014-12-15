@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #include <CoreData/CoreData.h>
 #include "SBJson.h"
+#import "AppDelegate.h"
+#import "Items.h"
 
 @interface AddBeaconViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *tfRange;

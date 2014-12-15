@@ -13,6 +13,8 @@
 
 @implementation AppDelegate
 
+@synthesize pendingOperations = _pendingOperations;
+
 #define debug 0
 
 - (NSManagedObjectContext *)getManagedObjectContext{
@@ -50,7 +52,68 @@
     return nil;
 }
 
+-(void) checkForModifiedItems{
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Items"];
+    
+    // For conditional fetching
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"item_modified == %d",[[NSNumber numberWithInt:1] intValue]];
+    [fetchRequest setPredicate:filter];
+    
+    NSArray *fetchedObjects = [_coreDataHelper.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    for(Items *item in fetchedObjects){
+        //This function is supposed to handle both add and update
+        //Write php part to handle updates, i.e. modify the entire row if the item exists before with the value being changed
+        
+        [self startItemUploading:item];
+    }
+}
 
+#pragma mark -Lazy initialization
+
+- (PendingUploads *)pendingOperations {
+    if (!_pendingOperations) {
+        _pendingOperations = [[PendingUploads alloc] init];
+    }
+    return _pendingOperations;
+}
+
+- (void)startItemUploading:(Items *)item {
+    ItemUploader *itemUploader = [[ItemUploader alloc] initWithItems:item delegate:self];
+    [self.pendingOperations.uploadQueue addOperation:itemUploader];
+}
+
+- (void)itemUploadDidFinish:(ItemUploader *)uploader {
+    
+    NSString *item_name = uploader.item_name;
+    NSString *user_name = uploader.user_name;
+    BOOL success = uploader.success;
+    
+    //Update here that the item is no longer modified
+    if(success==true){
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Items"];
+
+        // For conditional fetching
+        NSPredicate *filter = [NSPredicate predicateWithFormat:@"(user_name=%@) AND (item_name=%@)",user_name,item_name];
+        [request setPredicate:filter];
+
+        NSError *error = nil;
+        Items *item = nil;
+        item = [[_coreDataHelper.managedObjectContext executeFetchRequest:request error:&error] lastObject];
+
+        if(error){
+            NSLog(@"Can't execute fetch request! %@ %@", error, [error localizedDescription]);
+        }
+        if(item){
+            item.item_modified = [NSNumber numberWithInt:(int)0];
+            [_coreDataHelper saveContext];
+        }
+    }
+}
+
+
+#pragma mark - Other functions
 -(void)demo{
     /*
      **  Method to add to existing database
@@ -98,6 +161,7 @@
     [_coreDataHelper saveContext];
 }
 
+#pragma mark - AppDelegate methods
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -105,6 +169,7 @@
         NSLog(@"Running %@ '%@'",self.class,NSStringFromSelector(_cmd));
     }
     [self cdh];
+    //Call this to erase all the item and user data
     [self demo];
     
     
@@ -132,6 +197,7 @@
     self.window.rootViewController = homeScreenVC;
     [self.window makeKeyAndVisible];
     
+    [self checkForModifiedItems];
     return YES;
 }
 
@@ -147,8 +213,8 @@
     if(debug==1){
         NSLog(@"Running %@ '%@'",self.class, NSStringFromSelector(_cmd));
     }
+    [self setPendingOperations:nil];
     [[self cdh] saveContext];
-    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

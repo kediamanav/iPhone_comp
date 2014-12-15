@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataHelper.h"
+#include "ItemUploader.h"
+#include "PendingUploads.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,ItemUploaderDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong, readonly) CoreDataHelper *coreDataHelper;
 
 - (NSManagedObjectContext *)getManagedObjectContext;
+@property (nonatomic, strong) PendingUploads *pendingOperations;
 
 /*
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

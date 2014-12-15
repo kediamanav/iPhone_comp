@@ -118,6 +118,7 @@
     
     NSArray *fetchedObjects = [context executeFetchRequest:request error:nil];
     
+    NSMutableArray *records = [NSMutableArray array];
     for(Items *item in fetchedObjects){
         NSLog(@"Fetched Object = %@",item.item_name);
         
@@ -137,13 +138,13 @@
             record.itemImage = true;
             record.loadFromLocal = true;
         }
-        [_photos addObject:record];
+        [records addObject:record];
         record=nil;
         
         [self.items addObject:item1];
         NSLog(@"Name: %@, Last-tracked: %@",item1.name, item1.lastTracked);
     }
-    
+    self.photos = records;
     NSLog(@"Before table reload");
     [self.tableView reloadData];
     NSLog(@"After table reload");
@@ -444,6 +445,7 @@
     cell.lastTrackedLabel.text=curItem.lastTracked;
     
     PhotoRecord *aRecord = [self.photos objectAtIndex:indexPath.row];
+    NSLog(@"LoadFromLocal from phptorecord: %d",aRecord.loadFromLocal);
     
     if(aRecord.loadFromLocal){
         [cell.activityBar setHidden:true];

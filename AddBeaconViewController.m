@@ -7,8 +7,6 @@
 //
 
 #import "AddBeaconViewController.h"
-#import "AppDelegate.h"
-#import "Items.h"
 
 @interface AddBeaconViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *pictureBeacon;
@@ -170,112 +168,109 @@
     // Save the object to persistent store
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-        [self alertStatus:error :@"Adding beacon Failed!"];
+        [self alertStatus:[error localizedDescription]:@"Adding beacon Failed!"];
         [self performSegueWithIdentifier:@"unwindSegueToScanBeacon" sender:self];
     }
     else{
         [self alertStatus:@"Adding beacon successful!" : @"Successful"];
         [self performSegueWithIdentifier:@"unwindAfterAddingBeacon" sender:self];
+        //Call the save to global database
+        //[self saveToGlobalDatabase:newItem];
     }
 }
 
-/* Saves to global database*/
-- (void) saveToGlobalDatabase : (NSString *)item_name :(NSString *) item_description :(NSInteger ) range :(NSInteger ) isLost :(NSInteger ) eLeashOn :(NSString *)dateTimeStamp{
-    @try {
-        if([item_name isEqualToString:@""]) {
-            [self alertStatus:@"Please enter the name of the item" :@"Adding beacon failed!"];
-        } else {
-            
-            //Creating the key-value pair arrays to hold the post data
-            NSArray *keys = [[NSArray alloc] initWithObjects:@"user_name",@"item_name",@"item_DOB",@"item_lastTracked",@"item_description",@"item_eLeashRange",@"item_isLost",@"item_eLeashOn",@"item_macAddress", nil];
-            NSArray *vals = [[NSArray alloc] initWithObjects:_user_name,item_name, dateTimeStamp, dateTimeStamp, item_description, [NSNumber numberWithInteger:range], [NSNumber numberWithInteger:isLost], [NSNumber numberWithInteger:eLeashOn] , _macAddress, nil];
-            
-            
-            // NSString *post =[[NSString alloc] initWithFormat:@"user_name=%@&item_name=%@&item_DOB=%@&item_lastTracked=%@&item_description=%@&item_eLeashRange=%ld&item_isLost=%ld&item_eLeashOn=%ld&item_macAddress=%@",_user_name,item_name, dateTimeStamp, dateTimeStamp, item_description, (long)range, (long)isLost, (long)eLeashOn, _macAddress];
-            //NSLog(@"PostData: %@",post);
-            //NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-            //NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-            
-            NSURL *url=[NSURL URLWithString:@"http://localhost/~kediamanav/login/addUserItem"];
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-            [request setURL:url];
-            [request setHTTPMethod:@"POST"];
-            
-            NSMutableData *body = [NSMutableData data];
-            
-            NSString *boundary = @"---------------------------14737809831466499882746641449";
-            NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-            [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
-            
-            //Upload image only if the user has selected something, i.e the aplha of the image has changed
-            if(self.picTaken == 1){
-                //Imagedata file
-                NSData *imageData = UIImageJPEGRepresentation(self.pictureBeacon.image, 90);
-                
-                NSString *imageName= _user_name;
-                imageName = [imageName stringByAppendingString:@"_"];
-                imageName = [imageName stringByAppendingString:item_name];
-                
-                [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-                [body appendData:[[NSString stringWithFormat:@"Content-Disposition: attachment; name=\"imageFile\"; filename=\"%@.jpg\"\r\n", imageName] dataUsingEncoding:NSASCIIStringEncoding]];
-                [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-                [body appendData:[NSData dataWithData:imageData]];
-                [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-            }
-            // Post data parameters
-            for(int i=0;i<[keys count];i++){
-                [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSASCIIStringEncoding]];
-                [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", [keys objectAtIndex:i]] dataUsingEncoding:NSASCIIStringEncoding]];
-                [body appendData:[[NSString stringWithFormat:@"%@",[vals objectAtIndex:i]] dataUsingEncoding:NSASCIIStringEncoding]];
-                [body appendData:[@"\r\n" dataUsingEncoding:NSASCIIStringEncoding]];
-            }
-            
-            //[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-            //[request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-            //[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:body];
-            
-            
-            NSError *error = [[NSError alloc] init];
-            NSHTTPURLResponse *response = nil;
-            NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            
-            NSLog(@"Response code: %ld", (long)[response statusCode]);
-            if ([response statusCode] >=200 && [response statusCode] <300)
-            {
-                NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-                NSLog(@"Response ==> %@", responseData);
-                
-                SBJsonParser *jsonParser = [SBJsonParser new];
-                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
-                NSLog(@"%@",jsonData);
-                NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
-                NSLog(@"%ld",(long)success);
-                if(success == 1)
-                {
-                    [self alertStatus:@"Adding beacon successful!" : @"Successful"];
-                    [self performSegueWithIdentifier:@"unwindAfterAddingBeacon" sender:self];
-                    
-                } else {
-                    NSString *error_msg = (NSString *) [jsonData objectForKey:@"error_message"];
-                    [self alertStatus:error_msg :@"Adding beacon Failed!"];
-                    [self performSegueWithIdentifier:@"unwindSegueToScanBeacon" sender:self];
-                }
-            } else {
-                if (error) NSLog(@"Error: %@", error);
-                [self alertStatus:@"Adding beacon failed." :@"Adding beacon failed!"];
-                [self performSegueWithIdentifier:@"unwindSegueToScanBeacon" sender:self];
-            }
+/* Saves to global database
+- (void) saveToGlobalDatabase : (Items *)item{
+    
+    //Creating the key-value pair arrays to hold the post data
+    NSArray *keys = [[NSArray alloc] initWithObjects:@"user_name",@"item_name",@"item_DOB",@"item_lastTracked",@"item_description",@"item_eLeashRange",@"item_isLost",@"item_eLeashOn",@"item_macAddress", nil];
+    NSArray *vals = [[NSArray alloc] initWithObjects:item.user_name,item.item_name, item.item_DOB, item.item_lastTracked, item.item_description, item.item_eLeashRange, item.item_isLost, item.item_eLeashOn , item.item_macAddress, nil];
+
+    // NSString *post =[[NSString alloc] initWithFormat:@"user_name=%@&item_name=%@&item_DOB=%@&item_lastTracked=%@&item_description=%@&item_eLeashRange=%ld&item_isLost=%ld&item_eLeashOn=%ld&item_macAddress=%@",_user_name,item_name, dateTimeStamp, dateTimeStamp, item_description, (long)range, (long)isLost, (long)eLeashOn, _macAddress];
+    //NSLog(@"PostData: %@",post);
+    //NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    //NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+
+    NSURL *url=[NSURL URLWithString:@"http://localhost/~kediamanav/login/addUserItem"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+
+    NSMutableData *body = [NSMutableData data];
+
+    NSString *boundary = @"---------------------------14737809831466499882746641449";
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
+
+    //Upload image only if the user has selected something, i.e the aplha of the image has changed
+    if(item.item_picture != nil){
+        //Imagedata file
+        NSLog(@"The item had an image");
+        NSData *imageData = item.item_picture;
+        
+        NSString *imageName= item.user_name;
+        imageName = [imageName stringByAppendingString:@"_"];
+        imageName = [imageName stringByAppendingString:item.item_name];
+        
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: attachment; name=\"imageFile\"; filename=\"%@.jpg\"\r\n", imageName] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[NSData dataWithData:imageData]];
+        [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    // Post data parameters
+    for(int i=0;i<[keys count];i++){
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", [keys objectAtIndex:i]] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"%@",[vals objectAtIndex:i]] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[@"\r\n" dataUsingEncoding:NSASCIIStringEncoding]];
+    }
+
+    //[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    //[request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    //[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:body];
+    NSLog(@"Body is set");
+
+    AFHTTPRequestOperation *datasource_upload_operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    NSLog(@"Just before executing afnetworking");
+    //NSError *error = [[NSError alloc] init];
+    //NSHTTPURLResponse *response = nil;
+    //NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    [datasource_upload_operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData *datasource_data = (NSData *)responseObject;
+        NSString *responseData = [[NSString alloc]initWithData:datasource_data encoding:NSUTF8StringEncoding];
+        NSLog(@"Response ==> %@", responseData);
+        
+        SBJsonParser *jsonParser = [SBJsonParser new];
+        NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
+        NSLog(@"%@",jsonData);
+        NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
+        NSLog(@"%ld",(long)success);
+        if(success == 1)
+        {
+            NSLog(@"Beacon successfully added to global database");
         }
-    }
-    @catch (NSException * e) {
-        NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Adding beacon failed." :@"Adding beacon failed!"];
-        [self performSegueWithIdentifier:@"unwindSegueToScanBeacon" sender:self];
-    }
-
+        else{
+            NSString *error_msg = (NSString *) [jsonData objectForKey:@"error_message"];
+            NSLog(@"Beacon could not be added to global database: %@",error_msg);
+        }
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"Beacon could not be added to global database: %@",error);
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    }];
+    NSLog(@"Before addItem operation");
+    [self.pendingOperations.uploadQueue addOperation:datasource_upload_operation];
+    NSLog(@"After calling addItem operation");
 }
-
+*/
 
 /* Sends the data of the newly added item to the server*/
 - (void) sendDataToServer : (NSString *)item_name :(NSString *) item_description :(NSInteger ) range :(NSInteger ) isLost :(NSInteger ) eLeashOn {
@@ -288,9 +283,12 @@
     NSLog(@"%@",dateTimeStamp);
     
     //[self dismissViewControllerAnimated:YES completion:nil];
-    
-    [self saveToLocalDatabase:item_name :item_description :range :isLost :eLeashOn :dateTimeStamp];
-    //[self saveToGlobalDatabase:item_name :item_description :range :isLost :eLeashOn :dateTimeStamp];
+    if([item_name isEqualToString:@""]) {
+        [self alertStatus:@"Please enter the name of the item" :@"Adding beacon failed!"];
+    }
+    else{
+        [self saveToLocalDatabase:item_name :item_description :range :isLost :eLeashOn :dateTimeStamp];
+    }
 }
 
 #pragma mark - UI button functionalities

@@ -8,7 +8,6 @@
 
 #import "ImageDownloader.h"
 
-// 1
 @interface ImageDownloader ()
 @property (nonatomic, readwrite, strong) NSIndexPath *indexPathInTableView;
 @property (nonatomic, readwrite, strong) PhotoRecord *photoRecord;
@@ -20,7 +19,6 @@
 @synthesize indexPathInTableView = _indexPathInTableView;
 @synthesize photoRecord = _photoRecord;
 
-#pragma mark -
 #pragma mark - Life Cycle
 
 - (id)initWithPhotoRecord:(PhotoRecord *)record atIndexPath:(NSIndexPath *)indexPath delegate:(id<ImageDownloaderDelegate>)theDelegate {
@@ -34,13 +32,10 @@
     return self;
 }
 
-#pragma mark -
 #pragma mark - Downloading image
 
-// 3
 - (void)main {
     
-    // 4
     @autoreleasepool {
         if(_photoRecord.itemImage==false){
             return;
@@ -69,9 +64,7 @@
         if (self.isCancelled)
             return;
         
-        // 5
         [(NSObject *)self.delegate performSelectorOnMainThread:@selector(imageDownloaderDidFinish:) withObject:self waitUntilDone:NO];
-        
     }
 }
 
