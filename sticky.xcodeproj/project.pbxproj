@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5004BB7D19EE9CD500462F7A /* BeaconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BB7C19EE9CD500462F7A /* BeaconTableViewCell.m */; };
+		5004BB8019EEA43400462F7A /* AddBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BB7F19EEA43400462F7A /* AddBeaconViewController.m */; };
+		500A387A1A39D9750041B7A9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 500A38781A39D9750041B7A9 /* Model.xcdatamodeld */; };
+		500B5AB419E8217400FA7F9A /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5A9C19E8217400FA7F9A /* NSObject+SBJson.m */; };
+		500B5AB519E8217400FA7F9A /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5A9F19E8217400FA7F9A /* SBJsonParser.m */; };
+		500B5AB619E8217400FA7F9A /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5AA119E8217400FA7F9A /* SBJsonStreamParser.m */; };
+		500B5AB719E8217400FA7F9A /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5AA319E8217400FA7F9A /* SBJsonStreamParserAccumulator.m */; };
+		500B5AB819E8217400FA7F9A /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5AA519E8217400FA7F9A /* SBJsonStreamParserAdapter.m */; };
+		500B5AB919E8217400FA7F9A /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5AA719E8217400FA7F9A /* SBJsonStreamParserState.m */; };
+		500B5ABA19E8217400FA7F9A /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5AA919E8217400FA7F9A /* SBJsonStreamWriter.m */; };
+		500B5ABB19E8217400FA7F9A /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5AAB19E8217400FA7F9A /* SBJsonStreamWriterAccumulator.m */; };
+		500B5ABC19E8217400FA7F9A /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5AAD19E8217400FA7F9A /* SBJsonStreamWriterState.m */; };
+		500B5ABD19E8217400FA7F9A /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5AAF19E8217400FA7F9A /* SBJsonTokeniser.m */; };
+		500B5ABE19E8217400FA7F9A /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5AB119E8217400FA7F9A /* SBJsonUTF8Stream.m */; };
+		500B5ABF19E8217400FA7F9A /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B5AB319E8217400FA7F9A /* SBJsonWriter.m */; };
+		502C72D619E4743500874E98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 502C72D519E4743500874E98 /* main.m */; };
+		502C72D919E4743500874E98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 502C72D819E4743500874E98 /* AppDelegate.m */; };
+		502C72E119E4743500874E98 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502C72E019E4743500874E98 /* Images.xcassets */; };
+		502C72F019E4743500874E98 /* stickyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 502C72EF19E4743500874E98 /* stickyTests.m */; };
+		502C72FA19E47C2200874E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502C72F919E47C2200874E98 /* Main.storyboard */; };
+		502C72FD19E48B0D00874E98 /* beaconClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 502C72FC19E48B0D00874E98 /* beaconClass.m */; };
+		502C730019E4A1F900874E98 /* scanBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 502C72FF19E4A1F900874E98 /* scanBeaconViewController.m */; };
+		502C730319E4A4E600874E98 /* mainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 502C730219E4A4E600874E98 /* mainTableViewController.m */; };
+		503AAB0219E726EB006F9573 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 503AAB0119E726EB006F9573 /* Images */; };
+		503AAB3D19E75622006F9573 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AAB3C19E75622006F9573 /* SignUpViewController.m */; };
+		503AAB4019E75645006F9573 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AAB3F19E75645006F9573 /* LoginViewController.m */; };
+		507746BC19F9414900CB91FC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507746BB19F9414900CB91FC /* CoreData.framework */; };
+		507746C219F9626E00CB91FC /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 507746C119F9626E00CB91FC /* CoreDataHelper.m */; };
+		509962B61A3E11A5003809C7 /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = 509962B51A3E11A5003809C7 /* Items.m */; };
+		509962B91A3E11A6003809C7 /* Users.m in Sources */ = {isa = PBXBuildFile; fileRef = 509962B81A3E11A6003809C7 /* Users.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		502C72EA19E4743500874E98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 502C72C819E4743500874E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 502C72CF19E4743500874E98;
+			remoteInfo = sticky;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5004BB7B19EE9CD500462F7A /* BeaconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconTableViewCell.h; sourceTree = "<group>"; };
+		5004BB7C19EE9CD500462F7A /* BeaconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconTableViewCell.m; sourceTree = "<group>"; };
+		5004BB7E19EEA43400462F7A /* AddBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBeaconViewController.h; sourceTree = "<group>"; };
+		5004BB7F19EEA43400462F7A /* AddBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBeaconViewController.m; sourceTree = "<group>"; };
+		500A38791A39D9750041B7A9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		500B5A9B19E8217400FA7F9A /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		500B5A9C19E8217400FA7F9A /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		500B5A9D19E8217400FA7F9A /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		500B5A9E19E8217400FA7F9A /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		500B5A9F19E8217400FA7F9A /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		500B5AA019E8217400FA7F9A /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		500B5AA119E8217400FA7F9A /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		500B5AA219E8217400FA7F9A /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		500B5AA319E8217400FA7F9A /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		500B5AA419E8217400FA7F9A /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		500B5AA519E8217400FA7F9A /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		500B5AA619E8217400FA7F9A /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		500B5AA719E8217400FA7F9A /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		500B5AA819E8217400FA7F9A /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		500B5AA919E8217400FA7F9A /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		500B5AAA19E8217400FA7F9A /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		500B5AAB19E8217400FA7F9A /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		500B5AAC19E8217400FA7F9A /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		500B5AAD19E8217400FA7F9A /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		500B5AAE19E8217400FA7F9A /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		500B5AAF19E8217400FA7F9A /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		500B5AB019E8217400FA7F9A /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		500B5AB119E8217400FA7F9A /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		500B5AB219E8217400FA7F9A /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		500B5AB319E8217400FA7F9A /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		502C72D019E4743500874E98 /* sticky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sticky.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		502C72D419E4743500874E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		502C72D519E4743500874E98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		502C72D719E4743500874E98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = sticky/AppDelegate.h; sourceTree = "<group>"; };
+		502C72D819E4743500874E98 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = sticky/AppDelegate.m; sourceTree = "<group>"; };
+		502C72E019E4743500874E98 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = sticky/Images.xcassets; sourceTree = "<group>"; };
+		502C72E919E4743500874E98 /* stickyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stickyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		502C72EE19E4743500874E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		502C72EF19E4743500874E98 /* stickyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = stickyTests.m; sourceTree = "<group>"; };
+		502C72F919E47C2200874E98 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = sticky/Main.storyboard; sourceTree = "<group>"; };
+		502C72FB19E48B0D00874E98 /* beaconClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = beaconClass.h; sourceTree = "<group>"; };
+		502C72FC19E48B0D00874E98 /* beaconClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = beaconClass.m; sourceTree = "<group>"; };
+		502C72FE19E4A1F900874E98 /* scanBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scanBeaconViewController.h; sourceTree = "<group>"; };
+		502C72FF19E4A1F900874E98 /* scanBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scanBeaconViewController.m; sourceTree = "<group>"; };
+		502C730119E4A4E600874E98 /* mainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mainTableViewController.h; path = sticky/mainTableViewController.h; sourceTree = "<group>"; };
+		502C730219E4A4E600874E98 /* mainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = mainTableViewController.m; path = sticky/mainTableViewController.m; sourceTree = "<group>"; };
+		503AAB0119E726EB006F9573 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Images; path = sticky/Resources/Images; sourceTree = "<group>"; };
+		503AAB3B19E75622006F9573 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		503AAB3C19E75622006F9573 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		503AAB3E19E75645006F9573 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = sticky/LoginViewController.h; sourceTree = "<group>"; };
+		503AAB3F19E75645006F9573 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = sticky/LoginViewController.m; sourceTree = "<group>"; };
+		507746BB19F9414900CB91FC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		507746C019F9626E00CB91FC /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		507746C119F9626E00CB91FC /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		509962B41A3E11A5003809C7 /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Items.h; sourceTree = "<group>"; };
+		509962B51A3E11A5003809C7 /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Items.m; sourceTree = "<group>"; };
+		509962B71A3E11A6003809C7 /* Users.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Users.h; sourceTree = "<group>"; };
+		509962B81A3E11A6003809C7 /* Users.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Users.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		502C72CD19E4743500874E98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				507746BC19F9414900CB91FC /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		502C72E619E4743500874E98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		500A38731A39A7AB0041B7A9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				500A38781A39D9750041B7A9 /* Model.xcdatamodeld */,
+				509962B71A3E11A6003809C7 /* Users.h */,
+				509962B81A3E11A6003809C7 /* Users.m */,
+				509962B41A3E11A5003809C7 /* Items.h */,
+				509962B51A3E11A5003809C7 /* Items.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		500B5AC019E8218300FA7F9A /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				500B5A9B19E8217400FA7F9A /* NSObject+SBJson.h */,
+				500B5A9C19E8217400FA7F9A /* NSObject+SBJson.m */,
+				500B5A9D19E8217400FA7F9A /* SBJson.h */,
+				500B5A9E19E8217400FA7F9A /* SBJsonParser.h */,
+				500B5A9F19E8217400FA7F9A /* SBJsonParser.m */,
+				500B5AA019E8217400FA7F9A /* SBJsonStreamParser.h */,
+				500B5AA119E8217400FA7F9A /* SBJsonStreamParser.m */,
+				500B5AA219E8217400FA7F9A /* SBJsonStreamParserAccumulator.h */,
+				500B5AA319E8217400FA7F9A /* SBJsonStreamParserAccumulator.m */,
+				500B5AA419E8217400FA7F9A /* SBJsonStreamParserAdapter.h */,
+				500B5AA519E8217400FA7F9A /* SBJsonStreamParserAdapter.m */,
+				500B5AA619E8217400FA7F9A /* SBJsonStreamParserState.h */,
+				500B5AA719E8217400FA7F9A /* SBJsonStreamParserState.m */,
+				500B5AA819E8217400FA7F9A /* SBJsonStreamWriter.h */,
+				500B5AA919E8217400FA7F9A /* SBJsonStreamWriter.m */,
+				500B5AAA19E8217400FA7F9A /* SBJsonStreamWriterAccumulator.h */,
+				500B5AAB19E8217400FA7F9A /* SBJsonStreamWriterAccumulator.m */,
+				500B5AAC19E8217400FA7F9A /* SBJsonStreamWriterState.h */,
+				500B5AAD19E8217400FA7F9A /* SBJsonStreamWriterState.m */,
+				500B5AAE19E8217400FA7F9A /* SBJsonTokeniser.h */,
+				500B5AAF19E8217400FA7F9A /* SBJsonTokeniser.m */,
+				500B5AB019E8217400FA7F9A /* SBJsonUTF8Stream.h */,
+				500B5AB119E8217400FA7F9A /* SBJsonUTF8Stream.m */,
+				500B5AB219E8217400FA7F9A /* SBJsonWriter.h */,
+				500B5AB319E8217400FA7F9A /* SBJsonWriter.m */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		502C72C719E4743500874E98 = {
+			isa = PBXGroup;
+			children = (
+				503AAB4219E8107F006F9573 /* StickyProject */,
+				503AAB4319E810CA006F9573 /* Frameworks */,
+				502C72EC19E4743500874E98 /* stickyTests */,
+				502C72D119E4743500874E98 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		502C72D119E4743500874E98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				502C72D019E4743500874E98 /* sticky.app */,
+				502C72E919E4743500874E98 /* stickyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		502C72D319E4743500874E98 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				502C72D419E4743500874E98 /* Info.plist */,
+				502C72D519E4743500874E98 /* main.m */,
+			);
+			name = "Supporting Files";
+			path = sticky;
+			sourceTree = "<group>";
+		};
+		502C72EC19E4743500874E98 /* stickyTests */ = {
+			isa = PBXGroup;
+			children = (
+				502C72EF19E4743500874E98 /* stickyTests.m */,
+				502C72ED19E4743500874E98 /* Supporting Files */,
+			);
+			path = stickyTests;
+			sourceTree = "<group>";
+		};
+		502C72ED19E4743500874E98 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				502C72EE19E4743500874E98 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		503AAB4219E8107F006F9573 /* StickyProject */ = {
+			isa = PBXGroup;
+			children = (
+				500A38731A39A7AB0041B7A9 /* Data */,
+				502C72D719E4743500874E98 /* AppDelegate.h */,
+				502C72D819E4743500874E98 /* AppDelegate.m */,
+				502C72F919E47C2200874E98 /* Main.storyboard */,
+				507746C019F9626E00CB91FC /* CoreDataHelper.h */,
+				507746C119F9626E00CB91FC /* CoreDataHelper.m */,
+				5004BB7E19EEA43400462F7A /* AddBeaconViewController.h */,
+				5004BB7F19EEA43400462F7A /* AddBeaconViewController.m */,
+				503AAB3E19E75645006F9573 /* LoginViewController.h */,
+				503AAB3F19E75645006F9573 /* LoginViewController.m */,
+				502C730119E4A4E600874E98 /* mainTableViewController.h */,
+				502C730219E4A4E600874E98 /* mainTableViewController.m */,
+				5004BB7B19EE9CD500462F7A /* BeaconTableViewCell.h */,
+				5004BB7C19EE9CD500462F7A /* BeaconTableViewCell.m */,
+				502C72E019E4743500874E98 /* Images.xcassets */,
+				503AAB3B19E75622006F9573 /* SignUpViewController.h */,
+				503AAB3C19E75622006F9573 /* SignUpViewController.m */,
+				502C72FE19E4A1F900874E98 /* scanBeaconViewController.h */,
+				502C72FF19E4A1F900874E98 /* scanBeaconViewController.m */,
+				502C72FB19E48B0D00874E98 /* beaconClass.h */,
+				502C72FC19E48B0D00874E98 /* beaconClass.m */,
+				503AAB0119E726EB006F9573 /* Images */,
+				502C72D319E4743500874E98 /* Supporting Files */,
+			);
+			name = StickyProject;
+			sourceTree = "<group>";
+		};
+		503AAB4319E810CA006F9573 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				507746BB19F9414900CB91FC /* CoreData.framework */,
+				500B5AC019E8218300FA7F9A /* JSON */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		502C72CF19E4743500874E98 /* sticky */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 502C72F319E4743500874E98 /* Build configuration list for PBXNativeTarget "sticky" */;
+			buildPhases = (
+				502C72CC19E4743500874E98 /* Sources */,
+				502C72CD19E4743500874E98 /* Frameworks */,
+				502C72CE19E4743500874E98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sticky;
+			productName = sticky;
+			productReference = 502C72D019E4743500874E98 /* sticky.app */;
+			productType = "com.apple.product-type.application";
+		};
+		502C72E819E4743500874E98 /* stickyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 502C72F619E4743500874E98 /* Build configuration list for PBXNativeTarget "stickyTests" */;
+			buildPhases = (
+				502C72E519E4743500874E98 /* Sources */,
+				502C72E619E4743500874E98 /* Frameworks */,
+				502C72E719E4743500874E98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				502C72EB19E4743500874E98 /* PBXTargetDependency */,
+			);
+			name = stickyTests;
+			productName = stickyTests;
+			productReference = 502C72E919E4743500874E98 /* stickyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		502C72C819E4743500874E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Manav Kedia";
+				TargetAttributes = {
+					502C72CF19E4743500874E98 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					502C72E819E4743500874E98 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 502C72CF19E4743500874E98;
+					};
+				};
+			};
+			buildConfigurationList = 502C72CB19E4743500874E98 /* Build configuration list for PBXProject "sticky" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 502C72C719E4743500874E98;
+			productRefGroup = 502C72D119E4743500874E98 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				502C72CF19E4743500874E98 /* sticky */,
+				502C72E819E4743500874E98 /* stickyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		502C72CE19E4743500874E98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				502C72E119E4743500874E98 /* Images.xcassets in Resources */,
+				503AAB0219E726EB006F9573 /* Images in Resources */,
+				502C72FA19E47C2200874E98 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		502C72E719E4743500874E98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		502C72CC19E4743500874E98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				500B5ABD19E8217400FA7F9A /* SBJsonTokeniser.m in Sources */,
+				509962B91A3E11A6003809C7 /* Users.m in Sources */,
+				500A387A1A39D9750041B7A9 /* Model.xcdatamodeld in Sources */,
+				502C72D919E4743500874E98 /* AppDelegate.m in Sources */,
+				502C730019E4A1F900874E98 /* scanBeaconViewController.m in Sources */,
+				500B5AB919E8217400FA7F9A /* SBJsonStreamParserState.m in Sources */,
+				5004BB8019EEA43400462F7A /* AddBeaconViewController.m in Sources */,
+				503AAB3D19E75622006F9573 /* SignUpViewController.m in Sources */,
+				502C72FD19E48B0D00874E98 /* beaconClass.m in Sources */,
+				503AAB4019E75645006F9573 /* LoginViewController.m in Sources */,
+				5004BB7D19EE9CD500462F7A /* BeaconTableViewCell.m in Sources */,
+				500B5ABF19E8217400FA7F9A /* SBJsonWriter.m in Sources */,
+				502C72D619E4743500874E98 /* main.m in Sources */,
+				509962B61A3E11A5003809C7 /* Items.m in Sources */,
+				500B5AB719E8217400FA7F9A /* SBJsonStreamParserAccumulator.m in Sources */,
+				500B5AB519E8217400FA7F9A /* SBJsonParser.m in Sources */,
+				507746C219F9626E00CB91FC /* CoreDataHelper.m in Sources */,
+				500B5AB419E8217400FA7F9A /* NSObject+SBJson.m in Sources */,
+				500B5ABE19E8217400FA7F9A /* SBJsonUTF8Stream.m in Sources */,
+				502C730319E4A4E600874E98 /* mainTableViewController.m in Sources */,
+				500B5ABB19E8217400FA7F9A /* SBJsonStreamWriterAccumulator.m in Sources */,
+				500B5ABA19E8217400FA7F9A /* SBJsonStreamWriter.m in Sources */,
+				500B5ABC19E8217400FA7F9A /* SBJsonStreamWriterState.m in Sources */,
+				500B5AB619E8217400FA7F9A /* SBJsonStreamParser.m in Sources */,
+				500B5AB819E8217400FA7F9A /* SBJsonStreamParserAdapter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		502C72E519E4743500874E98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				502C72F019E4743500874E98 /* stickyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		502C72EB19E4743500874E98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 502C72CF19E4743500874E98 /* sticky */;
+			targetProxy = 502C72EA19E4743500874E98 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		502C72F119E4743500874E98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		502C72F219E4743500874E98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		502C72F419E4743500874E98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = sticky/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		502C72F519E4743500874E98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = sticky/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		502C72F719E4743500874E98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = stickyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sticky.app/sticky";
+			};
+			name = Debug;
+		};
+		502C72F819E4743500874E98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = stickyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sticky.app/sticky";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		502C72CB19E4743500874E98 /* Build configuration list for PBXProject "sticky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				502C72F119E4743500874E98 /* Debug */,
+				502C72F219E4743500874E98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		502C72F319E4743500874E98 /* Build configuration list for PBXNativeTarget "sticky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				502C72F419E4743500874E98 /* Debug */,
+				502C72F519E4743500874E98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		502C72F619E4743500874E98 /* Build configuration list for PBXNativeTarget "stickyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				502C72F719E4743500874E98 /* Debug */,
+				502C72F819E4743500874E98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		500A38781A39D9750041B7A9 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				500A38791A39D9750041B7A9 /* Model.xcdatamodel */,
+			);
+			currentVersion = 500A38791A39D9750041B7A9 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 502C72C819E4743500874E98 /* Project object */;
+}
