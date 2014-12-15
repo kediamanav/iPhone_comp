@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Keeper-->
+        <!--HomeScreenVC-->
         <scene sceneID="p8c-X7-z48">
             <objects>
-                <tableViewController id="3m6-kG-VCR" customClass="mainTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="mainTableViewController" title="HomeScreenVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3m6-kG-VCR" customClass="mainTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="eSq-UP-m6S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,9 +43,13 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="QaX-EK-Pky">
+                                            <rect key="frame" x="54" y="40" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="activityBar" destination="QaX-EK-Pky" id="to4-bv-0vU"/>
                                     <outlet property="lastTrackedLabel" destination="WMl-0L-9UT" id="3lF-qs-ETc"/>
                                     <outlet property="nameLabel" destination="EjD-mF-Y2t" id="q59-5V-R5U"/>
                                     <outlet property="thumbnailImage" destination="frx-GL-gAb" id="IOB-Un-Qpi"/>
@@ -256,10 +260,10 @@ FlNjYW5uaW5nIGZvciBiZWFjb24gLi4uA
             </objects>
             <point key="canvasLocation" x="3615.5" y="1151.5"/>
         </scene>
-        <!--Login View Controller-->
+        <!--LoginVC-->
         <scene sceneID="KEq-n5-hgd">
             <objects>
-                <viewController id="Ltw-0N-GDa" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" title="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ltw-0N-GDa" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QsN-Ub-w9k"/>
                         <viewControllerLayoutGuide type="bottom" id="i1n-te-2dN"/>
@@ -390,7 +394,7 @@ FlNjYW5uaW5nIGZvciBiZWFjb24gLi4uA
         <!--Navigation Controller-->
         <scene sceneID="xzN-c6-muy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ny7-e2-CNS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNVI" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ny7-e2-CNS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ulS-zk-gg3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

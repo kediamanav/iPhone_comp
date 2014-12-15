@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "mainTableViewController.h"
+#include "Users.h"
 
 @interface SignUpViewController : UIViewController
 

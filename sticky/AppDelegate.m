@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Items.h"
 #include "Users.h"
+#include "mainTableViewController.h"
 
 @implementation AppDelegate
 
@@ -31,6 +32,25 @@
     return _coreDataHelper;
 }
 
+
+-(Users *) checkIfUserLoggedIn{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Users"];
+    
+    /* For conditional fetching*/
+    //NSPredicate *filter = [NSPredicate predicateWithFormat:@"user_name = 'kediamanav'"];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"user_loggedin == %d",[[NSNumber numberWithInt:1] intValue]];
+    [request setPredicate:filter];
+    
+    NSArray *fetchedObjects = [_coreDataHelper.managedObjectContext executeFetchRequest:request error:nil];
+    
+    for(Users *user in fetchedObjects){
+        NSLog(@"password:%@, email:%@, username:%@",user.user_password,user.user_email,user.user_name);
+        return user;
+    }
+    return nil;
+}
+
+
 -(void)demo{
     /*
      **  Method to add to existing database
@@ -47,7 +67,8 @@
     /*
      **  Method to fetch all the objects from the database
     */
-    /*
+    
+    
     NSFetchRequest *request1 = [NSFetchRequest fetchRequestWithEntityName:@"Users"];
     NSFetchRequest *request2 = [NSFetchRequest fetchRequestWithEntityName:@"Items"];
     
@@ -65,15 +86,15 @@
     for(Items *item in fetchedObjects2){
         NSLog(@"Fetched Object = %@",item.item_name);
         //For deleting an object
-        //[_coreDataHelper.managedObjectContext deleteObject:item];
+        [_coreDataHelper.managedObjectContext deleteObject:item];
     }
     
     for(Users *user in fetchedObjects1){
         NSLog(@"Fetched Object = %@",user.user_name);
         //For deleting an object
-        //[_coreDataHelper.managedObjectContext deleteObject:user];
+        [_coreDataHelper.managedObjectContext deleteObject:user];
     }
-    */
+    
     [_coreDataHelper saveContext];
 }
 
@@ -85,6 +106,32 @@
     }
     [self cdh];
     [self demo];
+    
+    
+    Users *user=[self checkIfUserLoggedIn];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UINavigationController *homeScreenVC;
+    if(user==nil){
+        homeScreenVC = [storyboard instantiateInitialViewController];
+        mainTableViewController *mainScreen = [storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
+        [homeScreenVC setViewControllers:[NSArray arrayWithObjects:mainScreen, nil] animated:NO];
+    }
+    else{
+        homeScreenVC = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"MainNVI"];
+        NSLog(@"HERE: %@", user.user_name);
+        mainTableViewController *mainScreen = [storyboard instantiateViewControllerWithIdentifier:@"mainTableViewController"];
+        mainScreen.user_name = [[NSString alloc] initWithFormat:@"%@", user.user_name];
+        mainScreen.loadFromLocal = 1;
+        [homeScreenVC setViewControllers:[NSArray arrayWithObjects:mainScreen, nil] animated:NO];
+
+    }
+    
+    self.window.rootViewController = homeScreenVC;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -110,7 +157,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-   
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

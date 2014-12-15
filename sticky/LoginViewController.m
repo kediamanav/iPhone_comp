@@ -7,9 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import "AppDelegate.h"
 #import "Users.h"
-#import "SBJson.h"
 
 @interface LoginViewController ()
 - (IBAction)loginPressed:(id)sender;
@@ -20,7 +18,7 @@
 @property (weak, nonatomic) NSString *l_username;
 @property (weak, nonatomic) NSString *l_email;
 @property (weak, nonatomic) NSString *l_password;
-@property NSInteger *loadFromLocal;
+@property NSInteger loadFromLocal;
 
 - (IBAction)registerPressed:(id)sender;
 
@@ -51,10 +49,11 @@
         NSLog(@"Prepare for segue: %@", segue.identifier);
         UINavigationController *segueNavigation = [segue destinationViewController];
         mainTableViewController *transferViewController = (mainTableViewController *)[[segueNavigation viewControllers] objectAtIndex:0];
-        NSLog(@"HERE: %@", [_tfEmail text]);
+        NSLog(@"HERE: %@", _l_username);
         transferViewController.user_name = [[NSString alloc] initWithFormat:@"%@", _l_username];
         transferViewController.loadFromLocal = _loadFromLocal;
     }
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 
@@ -83,9 +82,13 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    //[super viewDidAppear:animated];
+    //[self checkIfUserLoggedIn];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self checkIfUserLoggedIn];
     // Do any additional setup after loading the view.
     
 }
@@ -132,6 +135,7 @@
 #pragma mark - Login global and local
 //Function that does the global login and also stores the user credentials in the local database
 - (void) globalLogin{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     @try {
         
         if([[_tfEmail text] isEqualToString:@""] || [[_tfPassword text] isEqualToString:@""] ) {
@@ -199,17 +203,20 @@
                         error_msg = (NSString *) [user objectForKey:@"error_message"];
                     }
                     [self alertStatus:error_msg :@"Login Failed!"];
+                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                 }
                 
             } else {
                 if (error) NSLog(@"Error: %@", error);
                 [self alertStatus:@"Connection Failed" :@"Login Failed!"];
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             }
         }
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
         [self alertStatus:@"Login Failed." :@"Login Failed!"];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }
 }
 

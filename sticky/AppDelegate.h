@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataHelper.h"
-//#import <CoreData/CoreData.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

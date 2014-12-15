@@ -163,7 +163,7 @@
         newItem.item_picture = imageData;
     }
     else{
-        newItem.item_picture = [[NSData alloc] init];
+        newItem.item_picture = nil;
     }
     
     NSError *error = nil;

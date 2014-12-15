@@ -7,9 +7,6 @@
 //
 
 #import "SignUpViewController.h"
-#include "AppDelegate.h"
-#include "Users.h"
-#import "SBJson.h"
 
 @interface SignUpViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *user_email;
@@ -51,6 +48,7 @@
         NSLog(@"HERE: %@", [_user_username text]);
         transferViewController.user_name = [[NSString alloc] initWithFormat:@"%@", [_user_username text]];
     }
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 - (void) alertStatus : (NSString *)msg :(NSString *)title{
@@ -96,8 +94,8 @@
 
 
 -(void) registerGlobally{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     @try {
-        
         if([[_user_username text] isEqualToString:@""] || [[_user_email text] isEqualToString:@""] || [[_user_password text] isEqualToString:@""] || [[_user_password_repeat text] isEqualToString:@""]) {
             [self alertStatus:@"Please enter all the fields" :@"Registration Failed!"];
         } else {
@@ -152,17 +150,20 @@
                     
                     NSString *error_msg = (NSString *) [jsonData objectForKey:@"error_message"];
                     [self alertStatus:error_msg :@"Registration Failed!"];
+                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                 }
                 
             } else {
                 if (error) NSLog(@"Error: %@", error);
                 [self alertStatus:@"Connection Failed" :@"Registration Failed!"];
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             }
         }
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
         [self alertStatus:@"Registration Failed." :@"Registration Failed!"];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }
 
 }

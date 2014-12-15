@@ -17,4 +17,5 @@
 @property BOOL eleash;
 @property NSDate *dateOfAddition;
 @property NSData *imageData;
+@property NSString *imageURL;
 @end
