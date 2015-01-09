@@ -12,22 +12,34 @@
 	<dict>
 		<key>3BE6D1511E5C6E536B2BAB0B606AC59AFA34AC48</key>
 		<string>https://github.com/kediamanav/iPhone_comp.git</string>
+		<key>7C8500804511B66F7E3605F4520732928C6861B7</key>
+		<string>https://github.com/kediamanav/iPhone_comp</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>sticky.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3BE6D1511E5C6E536B2BAB0B606AC59AFA34AC48</key>
+		<string>../../../sticky</string>
+		<key>7C8500804511B66F7E3605F4520732928C6861B7</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/kediamanav/iPhone_comp.git</string>
+	<string>https://github.com/kediamanav/iPhone_comp</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3BE6D1511E5C6E536B2BAB0B606AC59AFA34AC48</string>
+	<string>7C8500804511B66F7E3605F4520732928C6861B7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7C8500804511B66F7E3605F4520732928C6861B7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iPhone_comp-master</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
